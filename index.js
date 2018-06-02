@@ -74,6 +74,10 @@ function del (url, options) {
   return request(url, Object.assign(options, {method: 'DELETE'}))
 }
 
+function doRequest(url, options) {
+  return request(url, options);
+}
+
 module.exports = {
   get: get,
   post: post,
@@ -81,5 +85,6 @@ module.exports = {
   patch: patch,
   del: del,
   head: head,
-  options: options
+  options: options,
+  request: doRequest
 }
