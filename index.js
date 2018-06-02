@@ -4,7 +4,7 @@ const FormData = require('form-data')
 
 function request (url, options) {
 
-  let requestOptions
+  let requestOptions = {};
   if (options.json) {
     requestOptions = Object.assign(requestOptions, {
       headers: {
