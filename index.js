@@ -6,34 +6,36 @@ const es6promise = require('es6-promise')
 
 function request (url, options) {
 
-  let requestOptions = {method: options.method || 'GET'};
-  if (options.json) {
-    requestOptions = Object.assign(requestOptions, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(options.json)
-    })
-  }
-  else if (options.form) {
-    requestOptions = Object.assign(requestOptions, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: QueryString.stringify(options.form)
-    })
-  }
-  else if (options.formData) {
-    const data = new FormData()
-    Object.keys(options.formData).forEach(function (key) {
-      const t = options.formData[key]
-      if (t)
-        data.append(key, t)
-    })
+  let requestOptions = {method: options.method && options.method.toUpperCase() || 'GET'};
+  if (options.method !== 'GET') {
+    if (options.json) {
+      requestOptions = Object.assign(requestOptions, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(options.json)
+      })
+    }
+    else if (options.form) {
+      requestOptions = Object.assign(requestOptions, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: QueryString.stringify(options.form)
+      })
+    }
+    else if (options.formData) {
+      const data = new FormData()
+      Object.keys(options.formData).forEach(function (key) {
+        const t = options.formData[key]
+        if (t)
+          data.append(key, t)
+      })
 
-    requestOptions = Object.assign(requestOptions, {
-      body: data
-    })
+      requestOptions = Object.assign(requestOptions, {
+        body: data
+      })
+    }
   }
 
   // Custom headers
@@ -42,7 +44,7 @@ function request (url, options) {
   }
 
   if (options.qs) {
-    url = url + QueryString.stringify(options.qs)
+    url = url + '?' + QueryString.stringify(options.qs)
   }
 
   return fetch(url, requestOptions)
