@@ -6,7 +6,7 @@ const es6promise = require('es6-promise')
 
 function request (url, options) {
 
-  let requestOptions = {}
+  let requestOptions = Object.assign({}, options);
   if (options.json) {
     requestOptions = Object.assign(requestOptions, {
       headers: {
