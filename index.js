@@ -1,10 +1,12 @@
+/* global fetch */
 const fetch = require('isomorphic-unfetch')
 const QueryString = require('query-string')
 const FormData = require('form-data')
+const es6promise = require('es6-promise')
 
 function request (url, options) {
 
-  let requestOptions = {};
+  let requestOptions = {}
   if (options.json) {
     requestOptions = Object.assign(requestOptions, {
       headers: {
@@ -74,8 +76,8 @@ function del (url, options) {
   return request(url, Object.assign(options, {method: 'DELETE'}))
 }
 
-function doRequest(url, options) {
-  return request(url, options);
+function doRequest (url, options) {
+  return request(url, options)
 }
 
 module.exports = {

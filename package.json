@@ -17,6 +17,7 @@
   "author": "nghiaht",
   "license": "ISC",
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "form-data": "^2.3.2",
     "isomorphic-unfetch": "^2.0.0",
     "query-string": "^6.1.0"
