@@ -5,6 +5,8 @@ const FormData = require('form-data')
 const es6promise = require('es6-promise')
 
 function request (url, options) {
+  if (!options)
+    options = {};
 
   let requestOptions = {method: options.method && options.method.toUpperCase() || 'GET'};
   if (options.method !== 'GET') {
