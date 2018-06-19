@@ -42,7 +42,7 @@ function request (url, options) {
 
   // Custom headers
   if (options.headers) {
-    requestOptions = Object.assign(requestOptions, {headers: Object.assign(requestOptions.headers, options.headers)})
+    requestOptions = Object.assign(requestOptions, {headers: Object.assign(requestOptions.headers || {}, options.headers)})
   }
 
   if (options.qs) {
