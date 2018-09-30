@@ -1,6 +1,6 @@
 {
   "name": "sws-request",
-  "version": "2018.1.10",
+  "version": "2018.1.11",
   "description": "Soft World Studio - Isomorphic Request",
   "main": "index.js",
   "scripts": {
@@ -16,9 +16,9 @@
   ],
   "author": "nghiaht",
   "license": "ISC",
-  "dependencies": {    
+  "dependencies": {
     "form-data": "^2.3.2",
     "isomorphic-unfetch": "^2.0.0",
-    "qs": "^6.5.2"    
+    "qs": "^6.5.2"
   }
 }
