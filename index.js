@@ -86,5 +86,5 @@ module.exports = {
   del: del,
   head: head,
   options: options,
-  request: doRequest
+  request: request
 }
