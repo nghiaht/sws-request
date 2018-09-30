@@ -1,14 +1,12 @@
-/* global fetch */
-const fetch = require('isomorphic-unfetch')
-const QueryString = require('query-string')
-const FormData = require('form-data')
-const es6promise = require('es6-promise')
+require('isomorphic-unfetch');
+const QueryString = require('qs');
+const FormData = require('form-data');
 
-function request (url, options) {
+function request(url, options) {
   if (!options)
     options = {};
 
-  let requestOptions = {method: options.method && options.method.toUpperCase() || 'GET'};
+  let requestOptions = { method: options.method && options.method.toUpperCase() || 'GET' };
   if (options.method !== 'GET') {
     if (options.json) {
       requestOptions = Object.assign(requestOptions, {
@@ -42,7 +40,7 @@ function request (url, options) {
 
   // Custom headers
   if (options.headers) {
-    requestOptions = Object.assign(requestOptions, {headers: Object.assign(requestOptions.headers || {}, options.headers)})
+    requestOptions = Object.assign(requestOptions, { headers: Object.assign(requestOptions.headers || {}, options.headers) })
   }
 
   if (options.qs) {
@@ -52,36 +50,32 @@ function request (url, options) {
   return fetch(url, requestOptions)
 }
 
-function get (url, options) {
-  return request(url, Object.assign(options, {method: 'GET'}))
+function get(url, options) {
+  return request(url, Object.assign(options, { method: 'GET' }))
 }
 
-function head (url, options) {
-  return request(url, Object.assign(options, {method: 'HEAD'}))
+function head(url, options) {
+  return request(url, Object.assign(options, { method: 'HEAD' }))
 }
 
-function options (url, options) {
-  return request(url, Object.assign(options, {method: 'OPTIONS'}))
+function options(url, options) {
+  return request(url, Object.assign(options, { method: 'OPTIONS' }))
 }
 
-function post (url, options) {
-  return request(url, Object.assign(options, {method: 'POST'}))
+function post(url, options) {
+  return request(url, Object.assign(options, { method: 'POST' }))
 }
 
-function put (url, options) {
-  return request(url, Object.assign(options, {method: 'PUT'}))
+function put(url, options) {
+  return request(url, Object.assign(options, { method: 'PUT' }))
 }
 
-function patch (url, options) {
-  return request(url, Object.assign(options, {method: 'PATCH'}))
+function patch(url, options) {
+  return request(url, Object.assign(options, { method: 'PATCH' }))
 }
 
-function del (url, options) {
-  return request(url, Object.assign(options, {method: 'DELETE'}))
-}
-
-function doRequest (url, options) {
-  return request(url, options)
+function del(url, options) {
+  return request(url, Object.assign(options, { method: 'DELETE' }))
 }
 
 module.exports = {
