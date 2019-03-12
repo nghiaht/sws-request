@@ -1,7 +1,6 @@
 # sws-request
 
-[![npm version](http://img.shields.io/npm/v/REPO.svg?style=flat)](https://npmjs.org/package/sws-request "View this project on npm")
-
+[![npm version](https://badge.fury.io/js/sws-request.svg)](https://badge.fury.io/js/sws-request)
 
 * Hybrid Node.js request library for our use cases (React.js client and server side rendering apps).
 
