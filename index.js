@@ -1,4 +1,4 @@
-require('isomorphic-unfetch');
+var fetch = require('isomorphic-unfetch');
 const QueryString = require('qs');
 const FormData = require('form-data');
 
@@ -47,35 +47,35 @@ function request(url, options) {
     url = url + '?' + QueryString.stringify(options.qs)
   }
 
-  return fetch(url, requestOptions)
+  return fetch(url, requestOptions);
 }
 
-function get(url, options) {
-  return request(url, Object.assign(options, { method: 'GET' }))
+function get(url, options) {  
+  return request(url, Object.assign(options || {}, { method: 'GET' }))
 }
 
 function head(url, options) {
-  return request(url, Object.assign(options, { method: 'HEAD' }))
+  return request(url, Object.assign(options || {}, { method: 'HEAD' }))
 }
 
 function options(url, options) {
-  return request(url, Object.assign(options, { method: 'OPTIONS' }))
+  return request(url, Object.assign(options || {}, { method: 'OPTIONS' }))
 }
 
 function post(url, options) {
-  return request(url, Object.assign(options, { method: 'POST' }))
+  return request(url, Object.assign(options || {}, { method: 'POST' }))
 }
 
 function put(url, options) {
-  return request(url, Object.assign(options, { method: 'PUT' }))
+  return request(url, Object.assign(options || {}, { method: 'PUT' }))
 }
 
 function patch(url, options) {
-  return request(url, Object.assign(options, { method: 'PATCH' }))
+  return request(url, Object.assign(options || {}, { method: 'PATCH' }))
 }
 
 function del(url, options) {
-  return request(url, Object.assign(options, { method: 'DELETE' }))
+  return request(url, Object.assign(options || {}, { method: 'DELETE' }))
 }
 
 module.exports = {
