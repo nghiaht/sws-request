@@ -1,6 +1,6 @@
 {
   "name": "sws-request",
-  "version": "2019.0.1",
+  "version": "2019.0.2",
   "description": "Soft World Studio - Isomorphic Request",
   "main": "index.js",
   "scripts": {
