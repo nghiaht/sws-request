@@ -6,7 +6,7 @@ function request(url, options) {
   if (!options)
     options = {};
 
-  let requestOptions = { method: options.method && options.method.toUpperCase() || 'GET' };
+  let requestOptions = Object.assign({}, options, { method: options.method && options.method.toUpperCase() || 'GET' });
   if (options.method !== 'GET') {
     if (options.json) {
       requestOptions = Object.assign(requestOptions, {
